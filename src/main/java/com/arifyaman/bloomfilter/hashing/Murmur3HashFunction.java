@@ -5,14 +5,12 @@ public class Murmur3HashFunction implements HashFunction{
     @Override
     public int hash(byte[] value) {
         int h1 = 2;
-        //Standard in Guava
         int c1 = 0xcc9e2d51;
         int c2 = 0x1b873593;
         int len = value.length;
         int i = 0;
 
         while (len >= 4) {
-            //process()
             int k1  = (value[i++] & 0xFF);
             k1 |= (value[i++] & 0xFF) << 8;
             k1 |= (value[i++] & 0xFF) << 16;
