@@ -1,6 +1,8 @@
-package com.arifyaman.bloomfilter.hashing;
+package com.arifyaman.bloomfilter.test.hashing;
 
-public class Murmur3HashFunction implements HashFunction{
+import com.arifyaman.bloomfilter.hashing.HashFunction;
+
+public class Murmur3HashFunction implements HashFunction {
 
     @Override
     public int hash(byte[] value) {

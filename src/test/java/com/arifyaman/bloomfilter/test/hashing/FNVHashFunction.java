@@ -1,4 +1,6 @@
-package com.arifyaman.bloomfilter.hashing;
+package com.arifyaman.bloomfilter.test.hashing;
+
+import com.arifyaman.bloomfilter.hashing.HashFunction;
 
 public class FNVHashFunction implements HashFunction {
 

@@ -1,6 +1,9 @@
 package com.arifyaman.bloomfilter.test;
 
 import com.arifyaman.bloomfilter.hashing.*;
+import com.arifyaman.bloomfilter.test.hashing.DefaultHashFunction;
+import com.arifyaman.bloomfilter.test.hashing.FNVHashFunction;
+import com.arifyaman.bloomfilter.test.hashing.Murmur3HashFunction;
 import org.junit.Test;
 
 import java.io.*;

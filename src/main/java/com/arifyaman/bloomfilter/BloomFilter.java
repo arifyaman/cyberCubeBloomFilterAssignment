@@ -25,7 +25,7 @@ public interface BloomFilter<T> {
     /**
      *
      * @param value the value will be checked if it might exist in the list.
-     * @return true means it might exist in the list. false means 100% is not in the list.
+     * @return true means it might exist in the list. false means the value 100% is not in the list.
      */
     boolean mayContain(T value);
 }
