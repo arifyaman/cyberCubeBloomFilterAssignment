@@ -9,6 +9,6 @@ public class CRC32CHashFunction implements HashFunction{
         crc.update(value);
 
 
-        return (int) crc.getValue();
+        return Math.abs((int) crc.getValue());
     }
 }

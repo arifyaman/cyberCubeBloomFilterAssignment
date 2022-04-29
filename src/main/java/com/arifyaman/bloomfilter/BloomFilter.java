@@ -1,11 +1,21 @@
 package com.arifyaman.bloomfilter;
 
+import com.arifyaman.bloomfilter.hashing.HashFunction;
+
+import java.util.List;
+
 public interface BloomFilter<T> {
     /**
      *  Does not trigger false positive even if the value is there it will be set.
      * @param value the value will be added to list
      */
     void add(T value);
+
+    /**
+     *
+     * @param hashFunctions the hash functions to be used.
+     */
+    void setHashFunctions(List<HashFunction> hashFunctions) throws IllegalAccessException;
 
     /**
      *

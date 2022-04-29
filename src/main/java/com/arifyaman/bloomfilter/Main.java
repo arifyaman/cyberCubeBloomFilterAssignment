@@ -1,5 +1,6 @@
 package com.arifyaman.bloomfilter;
 
+import com.arifyaman.bloomfilter.hashing.CRC32CHashFunction;
 import com.arifyaman.bloomfilter.hashing.CRC32HashFunction;
 import com.arifyaman.bloomfilter.hashing.FNVHashFunction;
 
@@ -14,10 +15,11 @@ public class Main {
         FNVHashFunction hashFunction = new FNVHashFunction();
         BitSet set = new BitSet();
 
-        CRC32HashFunction function = new CRC32HashFunction();
-        System.out.println(function.hash("asd".getBytes(StandardCharsets.UTF_8)));
-        System.out.println(function.hash("asd".getBytes(StandardCharsets.UTF_8)));
-        System.out.println(function.hash("ıtausyıbduadosıdjkOSCŞÇASİC:".getBytes(StandardCharsets.UTF_8)));
+        CRC32HashFunction function1 = new CRC32HashFunction();
+        CRC32CHashFunction function2 = new CRC32CHashFunction();
+
+        System.out.println(function1.hash("asd".getBytes(StandardCharsets.UTF_8)));
+        System.out.println(function2.hash("asd".getBytes(StandardCharsets.UTF_8)));
     }
 
 }
