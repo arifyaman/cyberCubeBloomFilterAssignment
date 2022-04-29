@@ -5,6 +5,7 @@ import com.arifyaman.bloomfilter.hashing.CRC32HashFunction;
 import com.arifyaman.bloomfilter.test.hashing.DefaultHashFunction;
 import com.arifyaman.bloomfilter.test.hashing.FNVHashFunction;
 import com.arifyaman.bloomfilter.test.hashing.Murmur3HashFunction;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.BufferedReader;
@@ -38,6 +39,8 @@ public class WordUniformityTest extends AbsWordListTest {
         System.out.println(duplications + " duplications!");
         System.out.println(map.values().size());
 
+        Assert.assertTrue("Duplications are acceptable", duplications < 100);
+
     }
 
 
@@ -59,6 +62,7 @@ public class WordUniformityTest extends AbsWordListTest {
         System.out.println(wordCount + " words!");
         System.out.println(duplications + " duplications!");
         System.out.println(map.values().size());
+        Assert.assertTrue("Duplications are acceptable", duplications < 1000);
 
     }
 
@@ -80,6 +84,7 @@ public class WordUniformityTest extends AbsWordListTest {
         System.out.println(wordCount + " words!");
         System.out.println(duplications + " duplications!");
         System.out.println(map.values().size());
+        Assert.assertTrue("Duplications are acceptable", duplications < 100);
 
     }
 
@@ -101,6 +106,8 @@ public class WordUniformityTest extends AbsWordListTest {
         System.out.println(wordCount + " words!");
         System.out.println(duplications + " duplications!");
         System.out.println(map.values().size());
+        Assert.assertTrue("Duplications are acceptable", duplications < 100);
+
     }
 
     @Test
@@ -121,6 +128,7 @@ public class WordUniformityTest extends AbsWordListTest {
         System.out.println(wordCount + " words!");
         System.out.println(duplications + " duplications!");
         System.out.println(map.values().size());
+        Assert.assertTrue("Duplications are acceptable", duplications < 100);
 
     }
 

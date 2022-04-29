@@ -1,6 +1,7 @@
 package com.arifyaman.bloomfilter.test;
 
 import com.arifyaman.bloomfilter.SimpleBloomFilter;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
@@ -25,6 +26,8 @@ public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
 
         System.out.println(end-start+ " ms!");
         System.out.println(duplications+ " duplications !");
+        Assert.assertEquals("There should be no dublications", 0, duplications);
+
 
     }
 

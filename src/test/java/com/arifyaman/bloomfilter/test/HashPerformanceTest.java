@@ -1,6 +1,7 @@
 package com.arifyaman.bloomfilter.test;
 
 import com.arifyaman.bloomfilter.test.hashing.Murmur3HashFunction;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.nio.charset.StandardCharsets;
@@ -23,7 +24,7 @@ public class HashPerformanceTest extends AbsWordListTest {
         long end = System.currentTimeMillis();
         System.out.println(end - start + " ms!");
         System.out.println(lines + " lines are hashed!");
-
+        Assert.assertTrue("Time is acceptable", end-start<700);
     }
 
 
@@ -44,10 +45,12 @@ public class HashPerformanceTest extends AbsWordListTest {
 
             System.out.println(end - start + " ms!");
             System.out.println(lines + " lines are hashed!");
+
+            Assert.assertTrue("Time is acceptable", end-start<700);
+
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-
     }
 
 

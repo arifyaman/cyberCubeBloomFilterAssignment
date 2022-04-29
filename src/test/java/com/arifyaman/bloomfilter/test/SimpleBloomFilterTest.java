@@ -25,40 +25,32 @@ public class SimpleBloomFilterTest extends AbsWordListTest {
         System.out.println("Constructed in " + (end-start) + " ms!");
     }
 
-    @Test
-    public void simpleBloomFilterTest1() {
+    boolean tryToTestWithWord(String word) {
         long start = System.currentTimeMillis();
-        boolean result = simpleBloomFilter.mayContain("Abbotsford's");
+        boolean result = simpleBloomFilter.mayContain(word);
         long end = System.currentTimeMillis();
         System.out.println("Finished in " + (end-start) + " ms!");
-        assertTrue(result);
+        return result;
+    }
+
+    @Test
+    public void simpleBloomFilterTest1() {
+        assertTrue(tryToTestWithWord("Abbotsford's"));
     }
 
     @Test
     public void simpleBloomFilterTest2() {
-        long start = System.currentTimeMillis();
-        boolean result = simpleBloomFilter.mayContain("zz456123");
-        long end = System.currentTimeMillis();
-        System.out.println("Finished in " + (end-start) + " ms!");
-        assertFalse(result);
+        assertFalse(tryToTestWithWord("zz456123"));
     }
 
     @Test
     public void simpleBloomFilterTest3() {
-        long start = System.currentTimeMillis();
-        boolean result = simpleBloomFilter.mayContain("testing");
-        long end = System.currentTimeMillis();
-        System.out.println("Finished in " + (end-start) + " ms!");
-        assertTrue(result);
+        assertTrue(tryToTestWithWord("testing"));
     }
 
     @Test
     public void simpleBloomFilterTest4() {
-        long start = System.currentTimeMillis();
-        boolean result = simpleBloomFilter.mayContain("satisfactorinesses");
-        long end = System.currentTimeMillis();
-        System.out.println("Finished in " + (end-start) + " ms!");
-        assertTrue(result);
+        assertTrue(tryToTestWithWord("satisfactorinesses"));
     }
 
     @After
