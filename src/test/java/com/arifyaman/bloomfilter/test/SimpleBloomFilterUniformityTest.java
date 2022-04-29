@@ -14,19 +14,14 @@ public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
 
         SimpleBloomFilter simpleBloomFilter = new SimpleBloomFilter();
         int duplications = 0;
-        long start = System.currentTimeMillis();
         for (String word : words) {
             if(simpleBloomFilter.mayContain(word)){
-                System.out.println(word+ "   duplicated");
                 duplications++;
             }
             simpleBloomFilter.add(word);
         }
-        long end = System.currentTimeMillis();
 
-        System.out.println(end-start+ " ms!");
-        System.out.println(duplications+ " duplications !");
-        Assert.assertEquals("There should be no dublications", 0, duplications);
+        Assert.assertEquals("There should be no duplications", 0, duplications);
 
 
     }

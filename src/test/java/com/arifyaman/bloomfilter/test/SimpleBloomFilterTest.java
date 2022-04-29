@@ -16,21 +16,14 @@ public class SimpleBloomFilterTest extends AbsWordListTest {
     @Before
     public void constructFilter() {
         List<String> words = getWords("wordlist.txt");
-        long start = System.currentTimeMillis();
         simpleBloomFilter = new SimpleBloomFilter();
         for (String word : words) {
             simpleBloomFilter.add(word);
         }
-        long end = System.currentTimeMillis();
-        System.out.println("Constructed in " + (end-start) + " ms!");
     }
 
     boolean tryToTestWithWord(String word) {
-        long start = System.currentTimeMillis();
-        boolean result = simpleBloomFilter.mayContain(word);
-        long end = System.currentTimeMillis();
-        System.out.println("Finished in " + (end-start) + " ms!");
-        return result;
+        return simpleBloomFilter.mayContain(word);
     }
 
     @Test
