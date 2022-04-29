@@ -9,13 +9,13 @@ import java.util.Arrays;
 import java.util.BitSet;
 import java.util.List;
 
-public class SimpleBlurFilter implements BloomFilter<String> {
+public class SimpleBloomFilter implements BloomFilter<String> {
     HashFunction h1;
     HashFunction h2;
 
     BitSet bitSet;
 
-    public SimpleBlurFilter() {
+    public SimpleBloomFilter() {
         bitSet = new BitSet();
         setHashFunctions(Arrays.asList(new CRC32CHashFunction(), new CRC32HashFunction()));
 

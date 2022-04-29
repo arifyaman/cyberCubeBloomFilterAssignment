@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WordListTest {
+public abstract class AbsWordListTest {
 
     List<String> getWords(){
         ArrayList<String> words = new ArrayList<>();

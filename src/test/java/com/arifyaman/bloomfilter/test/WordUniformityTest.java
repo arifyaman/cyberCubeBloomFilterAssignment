@@ -6,32 +6,32 @@ import org.junit.Test;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.List;
 
-public class WordUniformityTest {
+public class WordUniformityTest extends AbsWordListTest {
 
     @Test
     public void FNVHashFunctionUniformityTest() throws IOException {
         FNVHashFunction FNVHashFunction = new FNVHashFunction();
+
         HashMap<Integer,Boolean> map = new HashMap<>();
-        int words = 0;
+        int wordCount = 0;
         int duplications = 0;
-        File file = new File("wordlist.txt");
-        FileReader fr = new FileReader(file);
-        BufferedReader br = new BufferedReader(fr);
-        String line;
+        List<String> words = getWords();
+
         long start = System.currentTimeMillis();
-        while ((line = br.readLine()) != null) {
-            int index = FNVHashFunction.hash(line.getBytes(StandardCharsets.UTF_8));
+
+        for(String word : words) {
+            int index = FNVHashFunction.hash(word.getBytes(StandardCharsets.UTF_8));
             if(map.get(index) != null && map.get(index)) duplications++;
             map.put(index, true);
-            words++;
+            wordCount++;
         }
         long end = System.currentTimeMillis();
         System.out.println(end-start + " ms!");
         System.out.println(words + " words!");
         System.out.println(duplications + " duplications!");
         System.out.println(map.values().size());
-        fr.close();
 
     }
 

@@ -8,7 +8,6 @@ public class CRC32HashFunction implements HashFunction {
         CRC32 crc = new CRC32();
         crc.update(value);
 
-
         return Math.abs((int) crc.getValue());
     }
 }

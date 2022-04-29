@@ -1,21 +1,22 @@
 package com.arifyaman.bloomfilter.test;
 
-import com.arifyaman.bloomfilter.SimpleBlurFilter;
+import com.arifyaman.bloomfilter.SimpleBloomFilter;
 import org.junit.Test;
 
 import java.util.List;
 
-public class SimpleBloomFilterUniformityTest extends WordListTest {
+public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
 
     @Test
     public void SimpleBloomFilterWordUniformityTest() {
         List<String> words = getWords();
-        SimpleBlurFilter simpleBlurFilter = new SimpleBlurFilter();
+
+        SimpleBloomFilter simpleBloomFilter = new SimpleBloomFilter();
         int duplications = 0;
         long start = System.currentTimeMillis();
         for (String word : words) {
-            if(simpleBlurFilter.mayContain(word)) duplications++;
-            simpleBlurFilter.add(word);
+            if(simpleBloomFilter.mayContain(word)) duplications++;
+            simpleBloomFilter.add(word);
         }
         long end = System.currentTimeMillis();
 

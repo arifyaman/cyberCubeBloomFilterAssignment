@@ -1,45 +1,67 @@
 package com.arifyaman.bloomfilter.test;
 
-import com.arifyaman.bloomfilter.SimpleBlurFilter;
+import com.arifyaman.bloomfilter.SimpleBloomFilter;
+import org.junit.After;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
 import java.util.List;
 
-public class SimpleBloomFilterTest extends WordListTest {
-    SimpleBlurFilter simpleBlurFilter;
+public class SimpleBloomFilterTest extends AbsWordListTest {
+    SimpleBloomFilter simpleBloomFilter;
 
     @Before
-    public void constructFilter(){
+    public void constructFilter() {
         List<String> words = getWords();
-        simpleBlurFilter = new SimpleBlurFilter();
+        long start = System.currentTimeMillis();
+        simpleBloomFilter = new SimpleBloomFilter();
         for (String word : words) {
-            simpleBlurFilter.add(word);
+            simpleBloomFilter.add(word);
         }
+        long end = System.currentTimeMillis();
+        System.out.println("Constructed in " + (end-start) + " ms!");
     }
 
     @Test
     public void SimpleBloomFilterTest1() {
-        boolean result = simpleBlurFilter.mayContain("Abbotsford's");
+        long start = System.currentTimeMillis();
+        boolean result = simpleBloomFilter.mayContain("Abbotsford's");
+        long end = System.currentTimeMillis();
+        System.out.println("Finished in " + (end-start) + " ms!");
         assertTrue(result);
     }
 
     @Test
     public void SimpleBloomFilterTest2() {
-        boolean result = simpleBlurFilter.mayContain("zz456123");
+        long start = System.currentTimeMillis();
+        boolean result = simpleBloomFilter.mayContain("zz456123");
+        long end = System.currentTimeMillis();
+        System.out.println("Finished in " + (end-start) + " ms!");
         assertFalse(result);
     }
 
     @Test
     public void SimpleBloomFilterTest3() {
-        boolean result = simpleBlurFilter.mayContain("testing");
+        long start = System.currentTimeMillis();
+        boolean result = simpleBloomFilter.mayContain("testing");
+        long end = System.currentTimeMillis();
+        System.out.println("Finished in " + (end-start) + " ms!");
         assertTrue(result);
     }
+
     @Test
     public void SimpleBloomFilterTest4() {
-        boolean result = simpleBlurFilter.mayContain("satisfactorinesses");
+        long start = System.currentTimeMillis();
+        boolean result = simpleBloomFilter.mayContain("satisfactorinesses");
+        long end = System.currentTimeMillis();
+        System.out.println("Finished in " + (end-start) + " ms!");
         assertTrue(result);
+    }
+
+    @After
+    public void clearTheFilter(){
+        simpleBloomFilter.clear();
     }
 
 
