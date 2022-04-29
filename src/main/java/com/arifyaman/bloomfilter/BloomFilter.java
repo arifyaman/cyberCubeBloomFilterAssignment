@@ -6,10 +6,13 @@ import java.util.List;
 
 public interface BloomFilter<T> {
     /**
-     *  Does not trigger false positive even if the value is there it will be set.
+     * Does not trigger false positive even if the value is there it will be set.
+     *
      * @param value the value will be added to list
      */
     void add(T value);
+
+    void addList(List<T> values);
 
     /**
      * Clears the memory of the filter.
@@ -17,13 +20,11 @@ public interface BloomFilter<T> {
     void clear();
 
     /**
-     *
      * @param hashFunctions the hash functions to be used.
      */
     void setHashFunctions(List<HashFunction> hashFunctions);
 
     /**
-     *
      * @param value the value will be checked if it might exist in the list.
      * @return true means it might exist in the list. false means the value 100% is not in the list.
      */

@@ -5,8 +5,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -15,11 +13,8 @@ public class SimpleBloomFilterTest extends AbsWordListTest {
 
     @Before
     public void constructFilter() {
-        List<String> words = getWords("wordlist.txt");
         simpleBloomFilter = new SimpleBloomFilter();
-        for (String word : words) {
-            simpleBloomFilter.add(word);
-        }
+        simpleBloomFilter.addList(getWords("wordlist.txt"));
     }
 
     boolean tryToTestWithWord(String word) {
@@ -47,7 +42,7 @@ public class SimpleBloomFilterTest extends AbsWordListTest {
     }
 
     @After
-    public void clearTheFilter(){
+    public void clearTheFilter() {
         simpleBloomFilter.clear();
     }
 

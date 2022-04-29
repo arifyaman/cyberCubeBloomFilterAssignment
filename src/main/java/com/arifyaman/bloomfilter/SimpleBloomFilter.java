@@ -13,21 +13,30 @@ import java.util.List;
  * Uses 2 hash functions (CRC32 nd CRC32C) together.
  */
 public class SimpleBloomFilter implements BloomFilter<String> {
-    HashFunction h1;
-    HashFunction h2;
+    private HashFunction h1;
+    private HashFunction h2;
 
-    BitSet bitSet;
+    private BitSet bitSet;
 
     public SimpleBloomFilter() {
         bitSet = new BitSet();
         setHashFunctions(Arrays.asList(new CRC32CHashFunction(), new CRC32HashFunction()));
+    }
 
+    /*
+      Bitset is thread safe for reading. Let's make sure adding into it is ok for multi threading as well.
+     */
+    @Override
+    public synchronized void add(String value) {
+        bitSet.set(h1.hash(value.getBytes(StandardCharsets.UTF_8)));
+        bitSet.set(h2.hash(value.getBytes(StandardCharsets.UTF_8)));
     }
 
     @Override
-    public void add(String value) {
-        bitSet.set(h1.hash(value.getBytes(StandardCharsets.UTF_8)));
-        bitSet.set(h2.hash(value.getBytes(StandardCharsets.UTF_8)));
+    public synchronized void addList(List<String> values) {
+        for(String value : values) {
+            add(value);
+        }
     }
 
     @Override

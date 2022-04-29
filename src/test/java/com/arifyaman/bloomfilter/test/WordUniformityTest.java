@@ -8,14 +8,13 @@ import com.arifyaman.bloomfilter.test.hashing.Murmur3HashFunction;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 public class WordUniformityTest extends AbsWordListTest {
 
     @Test
-    public void fNVHashFunctionUniformityTest() throws IOException {
+    public void fNVHashFunctionUniformityTest() {
         FNVHashFunction fnvHashFunction = new FNVHashFunction();
 
         HashMap<Integer, Boolean> map = new HashMap<>();
@@ -34,10 +33,9 @@ public class WordUniformityTest extends AbsWordListTest {
     /**
      * Default hash function is not practical for bloom filters !
      *
-     * @throws IOException
      */
     @Test
-    public void defaultHashFunctionUniformityTest() throws IOException {
+    public void defaultHashFunctionUniformityTest() {
         DefaultHashFunction defaultHashFunction = new DefaultHashFunction();
         HashMap<Integer, Boolean> map = new HashMap<>();
         int duplications = 0;
@@ -52,7 +50,7 @@ public class WordUniformityTest extends AbsWordListTest {
     }
 
     @Test
-    public void cRC32hashFunctionUniformityTest() throws IOException {
+    public void cRC32hashFunctionUniformityTest() {
         CRC32HashFunction crc32HashFunction = new CRC32HashFunction();
         HashMap<Integer, Boolean> map = new HashMap<>();
         int duplications = 0;
@@ -67,7 +65,7 @@ public class WordUniformityTest extends AbsWordListTest {
     }
 
     @Test
-    public void cRC32CHashFunctionUniformityTest() throws IOException {
+    public void cRC32CHashFunctionUniformityTest() {
         CRC32CHashFunction crc32CHashFunction = new CRC32CHashFunction();
         HashMap<Integer, Boolean> map = new HashMap<>();
         int duplications = 0;
@@ -82,7 +80,7 @@ public class WordUniformityTest extends AbsWordListTest {
     }
 
     @Test
-    public void murmur3HashFunctionUniformityTest() throws IOException {
+    public void murmur3HashFunctionUniformityTest() {
         Murmur3HashFunction murmur3HashFunction = new Murmur3HashFunction();
         HashMap<Integer, Boolean> map = new HashMap<>();
         int duplications = 0;
