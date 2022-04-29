@@ -10,11 +10,11 @@ import java.util.List;
 
 public abstract class AbsWordListTest {
 
-    List<String> getWords() {
+    List<String> getWords(String wordListTxt) {
         ArrayList<String> words = new ArrayList<>();
         try {
-
-            File file = new File("wordlist2.txt");
+            ClassLoader classLoader = getClass().getClassLoader();
+            File file = new File(classLoader.getResource(wordListTxt).getFile());
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String line;

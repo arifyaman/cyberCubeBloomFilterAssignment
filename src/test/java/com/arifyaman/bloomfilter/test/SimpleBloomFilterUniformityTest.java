@@ -9,7 +9,7 @@ public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
 
     @Test
     public void simpleBloomFilterWordUniformityTest() {
-        List<String> words = getWords();
+        List<String> words = getWords("wordlist.txt");
 
         SimpleBloomFilter simpleBloomFilter = new SimpleBloomFilter();
         int duplications = 0;

@@ -15,7 +15,7 @@ public class SimpleBloomFilterTest extends AbsWordListTest {
 
     @Before
     public void constructFilter() {
-        List<String> words = getWords();
+        List<String> words = getWords("wordlist.txt");
         long start = System.currentTimeMillis();
         simpleBloomFilter = new SimpleBloomFilter();
         for (String word : words) {
