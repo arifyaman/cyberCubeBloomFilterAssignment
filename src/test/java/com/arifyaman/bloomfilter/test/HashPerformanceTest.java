@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
 public class HashPerformanceTest {
 
     @Test
-    public void Murmurhash3_x64_128_asciiSpeedTest() {
+    public void murmurhash3_x64_128_asciiSpeedTest() {
         try {
             int lines = 0;
 
@@ -42,7 +42,7 @@ public class HashPerformanceTest {
 
 
     @Test
-    public void Murmur2HashSpeedTest() {
+    public void murmur2HashSpeedTest() {
 
         try {
             int lines = 0;
@@ -68,7 +68,7 @@ public class HashPerformanceTest {
     }
 
     @Test
-    public void SHA256SpeedTest() {
+    public void sHA256SpeedTest() {
         try {
             int lines = 0;
             MessageDigest digest = MessageDigest.getInstance("SHA-256");

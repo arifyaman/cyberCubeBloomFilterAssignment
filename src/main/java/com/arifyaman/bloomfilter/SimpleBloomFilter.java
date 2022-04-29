@@ -9,6 +9,9 @@ import java.util.Arrays;
 import java.util.BitSet;
 import java.util.List;
 
+/**
+ * Uses 2 hash functions (CRC32 nd CRC32C) together.
+ */
 public class SimpleBloomFilter implements BloomFilter<String> {
     HashFunction h1;
     HashFunction h2;
@@ -38,6 +41,18 @@ public class SimpleBloomFilter implements BloomFilter<String> {
     public boolean mayContain(String value) {
         if (!bitSet.get(h1.hash(value.getBytes(StandardCharsets.UTF_8)))) return false;
         return bitSet.get(h2.hash(value.getBytes(StandardCharsets.UTF_8)));
+    }
+
+    public int length() {
+        return bitSet.length();
+    }
+
+    public int size() {
+        return bitSet.size();
+    }
+
+    public int cardinality() {
+        return bitSet.cardinality();
     }
 
     @Override

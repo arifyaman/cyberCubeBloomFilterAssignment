@@ -8,14 +8,17 @@ import java.util.List;
 public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
 
     @Test
-    public void SimpleBloomFilterWordUniformityTest() {
+    public void simpleBloomFilterWordUniformityTest() {
         List<String> words = getWords();
 
         SimpleBloomFilter simpleBloomFilter = new SimpleBloomFilter();
         int duplications = 0;
         long start = System.currentTimeMillis();
         for (String word : words) {
-            if(simpleBloomFilter.mayContain(word)) duplications++;
+            if(simpleBloomFilter.mayContain(word)){
+                System.out.println(word+ "   duplicated");
+                duplications++;
+            }
             simpleBloomFilter.add(word);
         }
         long end = System.currentTimeMillis();

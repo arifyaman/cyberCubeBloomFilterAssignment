@@ -24,7 +24,7 @@ public class SimpleBloomFilterTest extends AbsWordListTest {
     }
 
     @Test
-    public void SimpleBloomFilterTest1() {
+    public void simpleBloomFilterTest1() {
         long start = System.currentTimeMillis();
         boolean result = simpleBloomFilter.mayContain("Abbotsford's");
         long end = System.currentTimeMillis();
@@ -33,7 +33,7 @@ public class SimpleBloomFilterTest extends AbsWordListTest {
     }
 
     @Test
-    public void SimpleBloomFilterTest2() {
+    public void simpleBloomFilterTest2() {
         long start = System.currentTimeMillis();
         boolean result = simpleBloomFilter.mayContain("zz456123");
         long end = System.currentTimeMillis();
@@ -42,7 +42,7 @@ public class SimpleBloomFilterTest extends AbsWordListTest {
     }
 
     @Test
-    public void SimpleBloomFilterTest3() {
+    public void simpleBloomFilterTest3() {
         long start = System.currentTimeMillis();
         boolean result = simpleBloomFilter.mayContain("testing");
         long end = System.currentTimeMillis();
@@ -51,7 +51,7 @@ public class SimpleBloomFilterTest extends AbsWordListTest {
     }
 
     @Test
-    public void SimpleBloomFilterTest4() {
+    public void simpleBloomFilterTest4() {
         long start = System.currentTimeMillis();
         boolean result = simpleBloomFilter.mayContain("satisfactorinesses");
         long end = System.currentTimeMillis();

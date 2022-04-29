@@ -11,7 +11,7 @@ import java.util.List;
 public class WordUniformityTest extends AbsWordListTest {
 
     @Test
-    public void FNVHashFunctionUniformityTest() throws IOException {
+    public void fNVHashFunctionUniformityTest() throws IOException {
         FNVHashFunction FNVHashFunction = new FNVHashFunction();
 
         HashMap<Integer,Boolean> map = new HashMap<>();
@@ -36,7 +36,7 @@ public class WordUniformityTest extends AbsWordListTest {
     }
 
     @Test
-    public void MyTestFunctionUniformityTest() throws IOException {
+    public void myTestFunctionUniformityTest() throws IOException {
         MyTestHashFunction myTestHashFunction = new MyTestHashFunction();
         HashMap<Integer,Boolean> map = new HashMap<>();
 
@@ -63,7 +63,7 @@ public class WordUniformityTest extends AbsWordListTest {
     }
 
     @Test
-    public void DefaultHashFunctionUniformityTest() throws IOException {
+    public void defaultHashFunctionUniformityTest() throws IOException {
         DefaultHashFunction defaultHashFunction = new DefaultHashFunction();
         HashMap<Integer,Boolean> map = new HashMap<>();
         int words = 0;
@@ -89,7 +89,7 @@ public class WordUniformityTest extends AbsWordListTest {
     }
 
     @Test
-    public void CRC32hashFunctionUniformityTest() throws IOException {
+    public void cRC32hashFunctionUniformityTest() throws IOException {
         CRC32HashFunction crc32HashFunction = new CRC32HashFunction();
         HashMap<Integer,Boolean> map = new HashMap<>();
         int words = 0;
@@ -114,7 +114,7 @@ public class WordUniformityTest extends AbsWordListTest {
 
     }
     @Test
-    public void CRC32CHashFunctionUniformityTest() throws IOException {
+    public void cRC32CHashFunctionUniformityTest() throws IOException {
         CRC32CHashFunction crc32CHashFunction = new CRC32CHashFunction();
         HashMap<Integer,Boolean> map = new HashMap<>();
         int words = 0;
@@ -140,7 +140,7 @@ public class WordUniformityTest extends AbsWordListTest {
     }
 
     @Test
-    public void Murmur3HashFunctionUniformityTest() throws IOException {
+    public void murmur3HashFunctionUniformityTest() throws IOException {
         Murmur3HashFunction murmur3HashFunction = new Murmur3HashFunction();
         HashMap<Integer,Boolean> map = new HashMap<>();
         int words = 0;
