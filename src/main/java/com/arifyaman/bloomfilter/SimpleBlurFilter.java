@@ -15,9 +15,10 @@ public class SimpleBlurFilter implements BloomFilter<String> {
 
     BitSet bitSet;
 
-    public SimpleBlurFilter() throws IllegalAccessException {
+    public SimpleBlurFilter() {
         bitSet = new BitSet();
         setHashFunctions(Arrays.asList(new CRC32CHashFunction(), new CRC32HashFunction()));
+
     }
 
     @Override
@@ -27,15 +28,20 @@ public class SimpleBlurFilter implements BloomFilter<String> {
     }
 
     @Override
-    public void setHashFunctions(List<HashFunction> hashFunctions) throws IllegalAccessException {
-        if (hashFunctions.size() != 2) throw new IllegalAccessException("2 Hash functions are expected!");
+    public void setHashFunctions(List<HashFunction> hashFunctions) {
+        if (hashFunctions.size() != 2) throw new IllegalArgumentException("2 Hash functions are expected!");
         h1 = hashFunctions.get(0);
         h2 = hashFunctions.get(1);
     }
 
     @Override
     public boolean mayContain(String value) {
-        if(!bitSet.get(h1.hash(value.getBytes(StandardCharsets.UTF_8)))) return false;
+        if (!bitSet.get(h1.hash(value.getBytes(StandardCharsets.UTF_8)))) return false;
         return bitSet.get(h2.hash(value.getBytes(StandardCharsets.UTF_8)));
+    }
+
+    @Override
+    public void clear() {
+        bitSet.clear();
     }
 }

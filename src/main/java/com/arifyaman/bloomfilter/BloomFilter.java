@@ -12,10 +12,15 @@ public interface BloomFilter<T> {
     void add(T value);
 
     /**
+     * Clears the memory of the filter.
+     */
+    void clear();
+
+    /**
      *
      * @param hashFunctions the hash functions to be used.
      */
-    void setHashFunctions(List<HashFunction> hashFunctions) throws IllegalAccessException;
+    void setHashFunctions(List<HashFunction> hashFunctions);
 
     /**
      *
