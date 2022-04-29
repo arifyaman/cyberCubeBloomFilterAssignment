@@ -14,17 +14,6 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.github.eprst</groupId>
-            <artifactId>murmur3</artifactId>
-            <version>0.4.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sangupta</groupId>
-            <artifactId>murmur</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
@@ -35,7 +24,6 @@
     <build>
         <finalName>cybercubeBloomFilterAssignmentLib</finalName>
         <plugins>
-            <!-- Set a JDK compiler level -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
