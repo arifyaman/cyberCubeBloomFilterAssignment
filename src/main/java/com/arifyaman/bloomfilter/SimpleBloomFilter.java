@@ -1,8 +1,6 @@
 package com.arifyaman.bloomfilter;
 
-import com.arifyaman.bloomfilter.hashing.CRC32CHashFunction;
-import com.arifyaman.bloomfilter.hashing.CRC32HashFunction;
-import com.arifyaman.bloomfilter.hashing.HashFunction;
+import com.arifyaman.bloomfilter.hashing.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -10,17 +8,20 @@ import java.util.BitSet;
 import java.util.List;
 
 /**
- * Uses 2 hash functions (CRC32 nd CRC32C) together.
+ * By default, uses 2 hash functions (Fowler–Noll–Vo and CRC32) together.
  */
 public class SimpleBloomFilter implements BloomFilter<String> {
     private HashFunction h1;
     private HashFunction h2;
 
+    /**
+     * Bitset data structure is a better storage efficient style for bloom filters.
+     */
     private BitSet bitSet;
 
     public SimpleBloomFilter() {
         bitSet = new BitSet();
-        setHashFunctions(Arrays.asList(new CRC32CHashFunction(), new CRC32HashFunction()));
+        setHashFunctions(Arrays.asList(new FNVHashFunction(), new CRC32HashFunction()));
     }
 
     /*

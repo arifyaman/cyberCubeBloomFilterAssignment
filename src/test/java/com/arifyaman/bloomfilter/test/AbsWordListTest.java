@@ -10,7 +10,7 @@ import java.util.List;
 
 public abstract class AbsWordListTest {
 
-    List<String> getWords(String wordListTxt) {
+    protected List<String> getWords(String wordListTxt) {
         ArrayList<String> words = new ArrayList<>();
         try {
             ClassLoader classLoader = getClass().getClassLoader();

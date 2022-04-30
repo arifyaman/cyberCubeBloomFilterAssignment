@@ -3,6 +3,7 @@ package com.arifyaman.bloomfilter.test;
 import com.arifyaman.bloomfilter.hashing.CRC32CHashFunction;
 import com.arifyaman.bloomfilter.hashing.CRC32HashFunction;
 import com.arifyaman.bloomfilter.test.hashing.DefaultHashFunction;
+import com.arifyaman.bloomfilter.test.hashing.FNV64HashFunction;
 import com.arifyaman.bloomfilter.test.hashing.FNVHashFunction;
 import com.arifyaman.bloomfilter.test.hashing.Murmur3HashFunction;
 import org.junit.Assert;
@@ -31,8 +32,7 @@ public class WordUniformityTest extends AbsWordListTest {
     }
 
     /**
-     * Default hash function is not practical for bloom filters !
-     *
+     * Default hash function is not practical for bloom filter !
      */
     @Test
     public void defaultHashFunctionUniformityTest() {
@@ -86,6 +86,20 @@ public class WordUniformityTest extends AbsWordListTest {
         int duplications = 0;
         for (String word : getWords("wordlist.txt")) {
             int index = murmur3HashFunction.hash(word.getBytes(StandardCharsets.UTF_8));
+            if (map.get(index) != null && map.get(index)) duplications++;
+            map.put(index, true);
+        }
+
+        Assert.assertTrue("Duplications are acceptable", duplications < 100);
+    }
+
+    @Test
+    public void fnv64HashFunction() {
+        FNV64HashFunction fnv64HashFunction = new FNV64HashFunction();
+        HashMap<Integer, Boolean> map = new HashMap<>();
+        int duplications = 0;
+        for (String word : getWords("wordlist.txt")) {
+            int index = fnv64HashFunction.hash(word.getBytes(StandardCharsets.UTF_8));
             if (map.get(index) != null && map.get(index)) duplications++;
             map.put(index, true);
         }
