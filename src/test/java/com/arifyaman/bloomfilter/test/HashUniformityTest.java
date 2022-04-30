@@ -12,7 +12,7 @@ import org.junit.Test;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
-public class WordUniformityTest extends AbsWordListTest {
+public class HashUniformityTest extends AbsWordListTest {
 
     @Test
     public void fNVHashFunctionUniformityTest() {

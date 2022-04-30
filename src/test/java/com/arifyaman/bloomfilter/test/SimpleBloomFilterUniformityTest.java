@@ -46,7 +46,7 @@ public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
 
 
     /**
-     * We have 1 duplication with FNV64 and CRC32 hashes over 1M words. So using these two hash functions together is not a good choice
+     * We have 1 duplication with FNV64 and CRC32 hashes over 1M words. So using these two hash functions together may not a good choice
      */
     @Test
     public void simpleBloomFilterWordUniformityTestWithFNV64AndCRC32Over1MInput() {
@@ -61,11 +61,11 @@ public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
             simpleBloomFilter.add(word);
         }
 
-        Assert.assertTrue("There is duplications not practical for use.", duplications > 0);
+        Assert.assertTrue("There are duplications not practical if we have better options.", duplications > 0);
     }
 
     /**
-     * These two hash functions give the best time - uniformity result.
+     * These two hash function pair gives the best time - uniformity result.
      */
     @Test
     public void simpleBloomFilterWordUniformityTestWithFNVAndCRC32Over1MInput() {
@@ -79,7 +79,6 @@ public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
             }
             simpleBloomFilter.add(word);
         }
-
         Assert.assertEquals("There should be no duplications", 0, duplications);
     }
 
