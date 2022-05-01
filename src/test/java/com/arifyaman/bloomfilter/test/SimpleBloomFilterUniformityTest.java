@@ -17,7 +17,7 @@ public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
      * @param h1 1st hash function
      * @param h2 2nd hash function
      * @param expectedDuplications we expect every word sets different 2 bit pair on filter. But we might have already 2 bit pair which is set for a new word. We try to see which hash functions give the best results.
-     * @return probability of giving true when the word is not in the list.
+     * @return Roughly probability of giving true when the word is not in the list (false positive probability)
      */
     public float testWithCustomTwoHashFunctions(List<String> words, HashFunction h1, HashFunction h2, int expectedDuplications) {
         SimpleBloomFilter simpleBloomFilter = new SimpleBloomFilter();
@@ -36,14 +36,13 @@ public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
 
     @Test
     public void simpleBloomFilterWordUniformityTestWithCRCHashes() {
-
-        Assert.assertTrue("Wrong false positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist.txt"), new CRC32HashFunction(), new CRC32CHashFunction(),0) < 0.1f);
+        Assert.assertTrue("False positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist.txt"), new CRC32HashFunction(), new CRC32CHashFunction(),0) < 0.1f);
     }
 
 
     @Test
     public void simpleBloomFilterWordUniformityTestWithFNVHashesOver1MInput() {
-        Assert.assertTrue("Wrong false positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist.txt"), new FNVHashFunction(), new FNV64HashFunction(),0) < 0.1f);
+        Assert.assertTrue("False positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist.txt"), new FNVHashFunction(), new FNV64HashFunction(),0) < 0.1f);
     }
 
 
@@ -60,28 +59,28 @@ public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
      */
     @Test
     public void simpleBloomFilterWordUniformityTestWithFNVAndCRC32Over1MInput() {
-        Assert.assertTrue("Wrong false positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist2.txt"), new FNVHashFunction(), new CRC32HashFunction(),0) < 0.1f);
+        Assert.assertTrue("False positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist2.txt"), new FNVHashFunction(), new CRC32HashFunction(),0) < 0.1f);
     }
 
     @Test
     public void simpleBloomFilterWordUniformityTestWithFNVAndCRC32() {
-        Assert.assertTrue("Wrong false positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist.txt"), new FNVHashFunction(), new CRC32HashFunction(),0) < 0.1f);
+        Assert.assertTrue("False positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist.txt"), new FNVHashFunction(), new CRC32HashFunction(),0) < 0.1f);
 
     }
 
     @Test
     public void simpleBloomFilterWordUniformityTestWithFNV64AndCRC32COver1MInput() {
-        Assert.assertTrue("Wrong false positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist2.txt"), new FNV64HashFunction(), new CRC32CHashFunction(),0) < 0.1f);
+        Assert.assertTrue("Flse positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist2.txt"), new FNV64HashFunction(), new CRC32CHashFunction(),0) < 0.1f);
     }
-    
+
     @Test
     public void simpleBloomFilterWordUniformityTestWithMurmur3AndCRC32Over1MInput() {
-        Assert.assertTrue("Wrong false positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist2.txt"), new Murmur3HashFunction(), new CRC32HashFunction(),0) < 0.1f);
+        Assert.assertTrue("False positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist2.txt"), new Murmur3HashFunction(), new CRC32HashFunction(),0) < 0.1f);
     }
 
     @Test
     public void simpleBloomFilterWordUniformityTestWithMurmur3AndFNVOver1MInput() {
-        Assert.assertTrue("Wrong false positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist2.txt"), new Murmur3HashFunction(), new FNVHashFunction(),0) < 0.1f);
+        Assert.assertTrue("False positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist2.txt"), new Murmur3HashFunction(), new FNVHashFunction(),0) < 0.1f);
     }
 
     /**
@@ -89,7 +88,7 @@ public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
      */
     @Test
     public void simpleBloomFilterWordUniformityTestWithMurmur3AndFNV64Over1MInput() {
-        Assert.assertTrue("Wrong false positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist2.txt"), new Murmur3HashFunction(), new FNV64HashFunction(),0) < 0.1f);
+        Assert.assertTrue("False positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist2.txt"), new Murmur3HashFunction(), new FNV64HashFunction(),0) < 0.1f);
     }
 
 
