@@ -57,6 +57,6 @@ public class Murmur3HashFunction implements HashFunction {
         h1 *= 0xc2b2ae35;
         h1 ^= h1 >>> 16;
 
-        return h1;
+        return Math.abs(h1);
     }
 }
