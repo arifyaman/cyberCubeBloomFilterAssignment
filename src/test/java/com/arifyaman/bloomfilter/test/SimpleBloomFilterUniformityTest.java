@@ -73,7 +73,7 @@ public class SimpleBloomFilterUniformityTest extends AbsWordListTest {
     public void simpleBloomFilterWordUniformityTestWithFNV64AndCRC32COver1MInput() {
         Assert.assertTrue("Wrong false positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist2.txt"), new FNV64HashFunction(), new CRC32CHashFunction(),0) < 0.1f);
     }
-
+    
     @Test
     public void simpleBloomFilterWordUniformityTestWithMurmur3AndCRC32Over1MInput() {
         Assert.assertTrue("Wrong false positive probability is less then 0.1%", testWithCustomTwoHashFunctions(getWords("wordlist2.txt"), new Murmur3HashFunction(), new CRC32HashFunction(),0) < 0.1f);

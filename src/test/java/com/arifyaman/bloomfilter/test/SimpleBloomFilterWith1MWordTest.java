@@ -1,18 +1,17 @@
 package com.arifyaman.bloomfilter.test;
 
 import com.arifyaman.bloomfilter.SimpleBloomFilter;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class SimpleBloomFilterWith1MWordTest extends AbsWordListTest {
-    SimpleBloomFilter simpleBloomFilter;
+    static SimpleBloomFilter simpleBloomFilter;
 
     @Before
     public void constructFilter() {
+        if(simpleBloomFilter != null) return;
         simpleBloomFilter = new SimpleBloomFilter();
         simpleBloomFilter.addList(getWords("wordlist2.txt"));
     }
@@ -30,7 +29,6 @@ public class SimpleBloomFilterWith1MWordTest extends AbsWordListTest {
     public void simpleBloomFilterTest2() {
         assertFalse(tryToTestWithWord("xxlqwkukxxczc22323"));
     }
-
 
     @Test
     public void simpleBloomFilterTest3() {
@@ -52,8 +50,8 @@ public class SimpleBloomFilterWith1MWordTest extends AbsWordListTest {
         assertFalse(tryToTestWithWord("vu4ii."));
     }
 
-    @After
-    public void clearTheFilter() {
+    @AfterClass
+    public static void clearTheFilter() {
         simpleBloomFilter.clear();
     }
 

@@ -1,6 +1,7 @@
 package com.arifyaman.bloomfilter.test;
 
 import com.arifyaman.bloomfilter.SimpleBloomFilter;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ public class BasicBloomFilterTest {
     SimpleBloomFilter simpleBloomFilter;
 
     @Before
-    public void construct() {
+    public void constructFilter() {
         simpleBloomFilter = new SimpleBloomFilter();
     }
 
@@ -25,11 +26,14 @@ public class BasicBloomFilterTest {
     @Test
     public void basicAddAndCheck2() {
         simpleBloomFilter.add("bloomFilterTest");
-        boolean result = simpleBloomFilter.mayContain("testFilterBloom");
+        boolean result = simpleBloomFilter.mayContain("testBloomFilter");
         assertFalse(result);
     }
 
-
+    @After
+    public void clearTheFilter() {
+        simpleBloomFilter.clear();
+    }
 
 
 }
